@@ -8,8 +8,8 @@ relative_permalinks: true
 title:               John Blog 
 tagline:             'Tips,Memo,LifeLog' 
 description:         'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:                 https://johnokaz.github.io
-baseurl:             ''
+url:                 https://johnokaz.github.io/
+baseurl:             'https://johnokaz.github.io/'
 paginate:            5
 
 # About/contact
@@ -20,3 +20,7 @@ author:
 
 # Custom vars
 version:             1.0.0
+
+# Add
+github:
+  repo:  https://github.com/outsinre/outsinre.github.com
