@@ -14,7 +14,7 @@ markdown形式で技術ログを作成したくて、
 
 Jekyll（ジキル）は静的サイトの生成を行うための、RubyGemsで配布されているRuby製のツール
 
-下記参照
+下記参照  
 [Jekyllとはなにか](https://app.codegrid.net/entry/jekyll-introduction)
 
 ### GitHub Pagesに公開するための下準備
@@ -45,8 +45,8 @@ Jekyllをgemにてインストールする
 一旦公開されているJekyll Themeの中から「[lanyon](https://github.com/poole/lanyon)」を使用してみる
 
 Themeを選ぶ際の参考サイト  
-[Jekyll Theme](http://jekyllthemes.org/)
-[jekyll/jekyll Jekyll Themes](https://github.com/jekyll/jekyll/wiki/Themes)
+[Jekyll Theme](http://jekyllthemes.org/)  
+[jekyll/jekyll Jekyll Themes](https://github.com/jekyll/jekyll/wiki/Themes)  
 
 ### Lanyonを使用したGitHub Pagesの作成
 
@@ -80,25 +80,31 @@ permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:               John Blog #自分用に修正
-tagline:             'Personal Tips,Memo,LifeLog' #自分用に修正
-description:         'This is John Blog' #自分用に修正
-url:                 https://johnokaz.github.io/ #自分用に修正
-baseurl:             'https://johnokaz.github.io/' #自分用に修正
+title:               John Blog
+tagline:             'Personal Tips,Memo,LifeLog'
+description:         'This is John Blog'
+url:                 https://johnokaz.github.io/
+baseurl:             ''
 paginate:            5
 
 # About/contact
 author:
-  name:              Johnokaz #自分用に修正
-  url:               https://twitter.com/johnokaz #自分用に修正
-  email:             johnokaz@gmail.com #自分用に修正
+  name:              Johnokaz
+  url:               https://twitter.com/johnokaz
+  email:             johnokaz@gmail.com
 
 # Custom vars
 version:             1.0.0
 
 # Add #自分用に追加
 github:
-  repo:  https://github.com/johnokaz/johnokaz.github.io.git  
+  repo:  https://github.com/johnokaz/johnokaz.github.io.git
+
+# コードブロックを「```」で行うために追加  
+markdown: redcarpet
+redcarpet:
+    extensions: [tables,autolink,strikethrough]
+
 ```
 
 ### サイドバーにArchiveとTagコンテンツ
@@ -106,16 +112,33 @@ github:
 サイトバーにArchiveとTagのコンテンツを入れたかったので、  
 プロジェクトホームディレクトリ配下に下記２ファイルを追加  
 
+[こちらのサイトを参考に](https://github.com/msanand/msanand.github.io)  
+
 - archive.md  
 
 ```{% raw %}
 ---
 layout: page
-title: Archives
+title: Archive
 ---
 
+<!-- ## Blog Posts -->
+
+<!-- {% for post in site.posts %}
+  * {{ post.date | date_to_string }} &raquo; [ {{ post.title }} ]({{ post.url }})
+{% endfor %} -->
+
 {% for post in site.posts %}
-  * {{ post.date | date_to_string }} &mdash; [ {{ post.title }} ]({{ post.url }})
+<ul class="tags">
+  {% for tag in post.tags %}
+    <li><a href="/tags/#{{tag}}" class="tag">{{ tag }}</a></li>
+  {% endfor %}
+</ul>
+<div>
+  <span style="float: left;"><a href="{{ post.url }}">{{ post.title }}</span>
+  <span style="float: right;">{{ post.date | date_to_string }}</span>
+</div>
+<div style="clear: both;"></div>
 {% endfor %}
 ```
 
@@ -125,35 +148,40 @@ title: Archives
 ---
 layout: page
 title: Tags
+description: "An archive of posts sorted by tag."
 ---
-<!-- Page code borrowed by dbtek -->
+
 {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+<!-- site_tags: {{ site_tags }} -->
 {% assign tag_words = site_tags | split:',' | sort %}
+<!-- tag_words: {{ tag_words }} -->
 
-<div >
-    <ul >
-    {% for item in (0..site.tags.size) %}{% unless forloop.last %}
-      {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
-      <li>
-          <a href="#{{ this_word | replace:' ','-' }}-ref" >
-            {{ this_word }}<span class="badge pull-right">{{ site.tags[this_word].size }}</span>
-         </a>
-      </li>
-   {% endunless %}{% endfor %}
-   </ul>
-</div>
-
-<div >
+<div id="tags">
+  <!-- <h1>Tags</h1> -->
+  <ul class="tags">
   {% for item in (0..site.tags.size) %}{% unless forloop.last %}
     {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
-    <div id="{{ this_word | replace:' ','-' }}-ref">
-      <h2 >Posts tagged  with {{ this_word }}</h2>
-      <ul >
-        {% for post in site.tags[this_word] %}{% if post.title != null %}
-          <li ><a href="{{ site.BASE_PATH }}{{post.url}}">{{post.title}}</a> <span >- {{ post.date | date: "%B %d, %Y" }}</span></li>
-        {% endif %}{% endfor %}
-      </ul>
+    <li ><a href="#{{ this_word | cgi_escape }}" class="tag">{{ this_word }} <span>({{ site.tags[this_word].size }})</span></a></li>
+  {% endunless %}{% endfor %}
+  </ul>
+
+  {% for item in (0..site.tags.size) %}{% unless forloop.last %}
+    {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+  <h2 id="{{ this_word | cgi_escape }}">{{ this_word }}</h2>
+  <!-- <ul class="posts"> -->
+    {% for post in site.tags[this_word] %}{% if post.title != null %}
+    <!-- <li itemscope>
+      <span class="entry-date">
+        <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time>
+      </span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
+    </li> -->
+    <div>
+      <span style="float: left;"><a href="{{ post.url }}">{{ post.title }}</span>
+      <span style="float: right;">{{ post.date | date_to_string }}</span>
     </div>
+    <div style="clear: both;"></div>
+    {% endif %}{% endfor %}
+  <!-- </ul> -->
   {% endunless %}{% endfor %}
 </div>
 ```
