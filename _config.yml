@@ -6,7 +6,7 @@ relative_permalinks: true
 
 # Setup
 title:               John Blog 
-tagline:             'Personal Tips,Memo,LifeLog' 
+tagline:             'Personal Tips, Memos, LifeLogs' 
 description:         'This is John Blog'
 url:                 https://johnokaz.github.io/
 baseurl:             ''
