@@ -108,8 +108,6 @@ github:
 
 - archive.md  
 
-{% assign openTag = '{%' %}
-
 ```{% raw %}
 ---
 layout: page
@@ -119,7 +117,6 @@ title: Archives
 {% for post in site.posts %}
   * {{ post.date | date_to_string }} &mdash; [ {{ post.title }} ]({{ post.url }})
 {% endfor %}
-{{ openTag }} endraw %}
 ```
 
 - tags.html
@@ -158,7 +155,7 @@ title: Tags
       </ul>
     </div>
   {% endunless %}{% endfor %}
-</div> 
+</div>
 ```
 
 ### ビルドしてデプロイ
