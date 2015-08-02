@@ -155,6 +155,7 @@ title: Tags
 
 ### ビルドしてデプロイ
 `$ jekyll build`  
+`$ git add -A`  
 `$ git commit -a -m "update"`  
 `$ git push -u origin master`  
 
