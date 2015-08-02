@@ -92,8 +92,8 @@ version:             1.0.0
 
 # Add #自分用に追加
 github:
-  repo:  https://github.com/johnokaz/johnokaz.github.io.git
-```
+  repo:  https://github.com/johnokaz/johnokaz.github.io.git  
+```  
 
 ### サイドバーにArchiveとTagコンテンツ
 
@@ -110,7 +110,7 @@ title: Archives
 
 {% for post in site.posts %}
   * {{ post.date | date_to_string }} &mdash; [ {{ post.title }} ]({{ post.url }})
-{% endfor %}
+{% endfor %}  
 ```
 
 - tags.html
@@ -149,7 +149,7 @@ title: Tags
       </ul>
     </div>
   {% endunless %}{% endfor %}
-</div>
+</div>  
 ```
 
 ### ビルドしてデプロイ
