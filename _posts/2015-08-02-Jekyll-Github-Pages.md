@@ -118,7 +118,7 @@ title: Archives
   * {{ post.date | date_to_string }} &mdash; [ {{ post.title }} ]({{ post.url }})
 {% endfor %}
 
-{% include archive.md %} 
+{% include /archive.md %} 
 ```
 
 - tags.html
