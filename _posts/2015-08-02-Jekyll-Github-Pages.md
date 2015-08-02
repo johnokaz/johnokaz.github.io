@@ -69,7 +69,7 @@ http://<ユーザー名>.github.io/にアクセスにアクセスして表示さ
 
 表示されたので、自分のサイトように設定ファイル(_config.yml)を下記内容に修正する
 
-```
+```yml
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
 relative_permalinks: true
@@ -103,7 +103,7 @@ github:
 
 - archive.md  
 
-```
+```md
   ---
 layout: page
 title: Archives
@@ -116,7 +116,7 @@ title: Archives
 
 - tags.html
 
-```
+```html
 ---
 layout: page
 title: Tags
