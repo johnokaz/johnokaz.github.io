@@ -9,7 +9,7 @@ title:               John Blog
 tagline:             'Personal Tips,Memo,LifeLog' 
 description:         'This is John Blog'
 url:                 https://johnokaz.github.io/
-baseurl:             'https://johnokaz.github.io/'
+baseurl:             ''
 paginate:            5
 
 # About/contact
