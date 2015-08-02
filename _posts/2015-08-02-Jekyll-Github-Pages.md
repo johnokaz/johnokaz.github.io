@@ -108,7 +108,7 @@ github:
 
 - archive.md  
 
-```
+```md
 ---
 layout: page
 title: Archives
@@ -121,7 +121,7 @@ title: Archives
 
 - tags.html
 
-```
+```html
 ---
 layout: page
 title: Tags
