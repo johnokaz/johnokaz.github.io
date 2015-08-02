@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Jekyll + GitHub Pages で技術メモ用Blogを構築してみた
-tags: [Jekyll, GitHub]
+tags: [Jekyll GitHub]
 markdown:    kramdown
 ---
 
