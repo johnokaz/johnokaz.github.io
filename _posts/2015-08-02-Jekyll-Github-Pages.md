@@ -67,9 +67,8 @@ http://<ユーザー名>.github.io/にアクセスにアクセスして表示さ
 
 ### _config.ymlの設定
 
-表示されたので、自分のサイトように設定ファイル(_config.yml)を下記内容に修正する
-
-```yml
+表示されたので、自分のサイトように設定ファイル(_config.yml)を下記内容に修正する  
+```  
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
 relative_permalinks: true
