@@ -68,7 +68,7 @@ http://<ユーザー名>.github.io/にアクセスにアクセスして表示さ
 ### _config.ymlの設定
 
 表示されたので、自分のサイトように設定ファイル(_config.yml)を下記内容に修正する  
-```  
+```
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
 relative_permalinks: true
@@ -93,7 +93,7 @@ version:             1.0.0
 # Add #自分用に追加
 github:
   repo:  https://github.com/johnokaz/johnokaz.github.io.git  
-```  
+```
 
 ### サイドバーにArchiveとTagコンテンツ
 
@@ -102,8 +102,8 @@ github:
 
 - archive.md  
 
-```md
-  ---
+```
+---
 layout: page
 title: Archives
 ---
@@ -115,7 +115,7 @@ title: Archives
 
 - tags.html
 
-```html
+```
 ---
 layout: page
 title: Tags
