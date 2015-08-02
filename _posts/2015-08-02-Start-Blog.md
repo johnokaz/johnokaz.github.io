@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Introducing Lanyon
+title: Start John Blog
+tags: [Lifelog]
 ---
 
 # Start John Blog
 
 - This Blog includes the following:
-	- Tip
-	- Memo
+	- My Personal Tip
+	- My Personal Memo
 	- My Personal Life Log
