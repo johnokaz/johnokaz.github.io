@@ -109,6 +109,7 @@ github:
 - archive.md  
 
 ```
+{% raw %}
 ---
 layout: page
 title: Archives
@@ -117,8 +118,8 @@ title: Archives
 {% for post in site.posts %}
   * {{ post.date | date_to_string }} &mdash; [ {{ post.title }} ]({{ post.url }})
 {% endfor %}
+{% endraw %}
 
-{% include {{ site.BASE_PATH }}/archive.md %} 
 ```
 
 - tags.html
