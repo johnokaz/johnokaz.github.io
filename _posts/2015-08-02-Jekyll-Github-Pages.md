@@ -1,4 +1,8 @@
-# Jekyll + GitHub Pages で技術メモ用Blogを構築してみた
+---
+layout: post
+title: Jekyll + GitHub Pages で技術メモ用Blogを構築してみた
+tags: [Jekyll]
+---
 
 ## はじめに
 
