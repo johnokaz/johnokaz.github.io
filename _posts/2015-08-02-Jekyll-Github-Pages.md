@@ -122,7 +122,7 @@ title: Archives
 
 - tags.html
 
-``` html
+```{% raw %}
 ---
 layout: page
 title: Tags
